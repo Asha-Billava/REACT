@@ -8,14 +8,17 @@
 </head>
 <body>
     <div id="root"></div>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script> <!--this is react core files--->
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>  -->
+    <!--this is react core files--->
+    <!-- <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -->
     <!---- this is used for dom operation or this is react dom need for mnipulate dom-->
     
     
-    <script src="./app.js">
+    <!---<script src="./App.js"> </script> //after importing react we cant pass app.js file like this, bcz import is not normal javascrit  script file  -->
+    
+    <script type="module" src="./App.js"></script>  <!-----now this will treat as module script file-->
        
-    </script>
+   
 
 </body>
 </html>
