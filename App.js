@@ -1,35 +1,88 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// this create element take 3 arguments ----
-//1.tag
-//2.{} this object is the place where you can give attributes to tag.
-//3.whatever we want means text to put inside tag
-//creteing element in react
-//react createElemnent is a javascript object
 
-const Heading = React.createElement(
-  "h1",
-  { id: "heading", xyz: "abc" },
-  "hello world from react"
+// React Element
+const jsxHeading = (
+  <h5 className="head" tabIndex="1">
+    Hi im react
+  </h5>
 );
 
-console.log(Heading); // you will get object
+console.log(jsxHeading, "DD"); //objects
 
-const Parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "this is react"),
-    React.createElement("h2", {}, "Im an h2 tag"),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "Im an h1 tag"),
-    React.createElement("h2", {}, "Im an h2 tag"),
-  ]),
-]);
+const elem = <span>im span tag</span>;
 
-//we have to tell react, what is root for react, there react can do all dom manipulation
-//creating root is a job of React.Dom.
+//React functional component
+
+const number = 10000;
+const Title = function () {
+  return (
+    <div>
+      <h1 className="title">Title Component</h1> <p>{elem}</p>
+    </div>
+  );
+};
+
+const HeadingComponent2 = () => (
+  <div id="container">
+    <Title />
+    <Title></Title>
+    {Title()}
+    {jsxHeading} {/*putting react elemet*/}
+    <h6 className="heading">This is React functional component</h6>
+  </div>
+);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
+//root.render(jsxHeading); // rendering react element
+root.render(<HeadingComponent2 />); //rending functional component
 
-//rendering
-//root.render(Heading); // this render method is basially converting this create
-root.render(Parent);
+/*
+//creating element using React element
+//const heading = React.createElement("h1", { id: "heading" }, "Namaste React "); //objects
+//console.log(heading);
+
+//createing element using JSX
+//JSX (transpild before it reaches the JS)=> PARCEL=> Babel
+//JSX => React.createElement => reactElement -JS Object=>HTML
+const jsxHeading = (
+  <h1 className="head" tabIndex="1">
+    Hi im react
+  </h1> 
+);
+
+
+
+
+
+what is React Component?
+everything is component
+
+there arw Two type of component
+1. class based component  -OLD way of React => it uses javascript class to write component
+
+2.functional component    -NEW way of React => it uses javascript functions to write component
+normal javascript code which returns some piece of JSX element
+//React functional component
+// const HeadingComponent = () => {
+//   return <h1 className="heading">This is React functional component</h1>;
+// };
+
+
+//what is component composition
+component inside component , compososing two components in one another
+const HeadingComponent2 = () => (
+  <div id="container">
+    <Title />
+    {number} //injecting js  
+    {100 + 200}
+    {console.log("hi hello")}
+    <h6 className="heading">This is React functional component</h6>
+  </div>
+);
+
+in case if you have melisious api when call in component,  JSX it will prevent cross site scripting for you ,it will not blinding running code 
+
+what makes your code more readable ?
+jsx is mading much more reable then react
+*/
